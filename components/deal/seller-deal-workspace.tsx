@@ -131,7 +131,7 @@ export function SellerDealWorkspace({ deal }: Props) {
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   <KV label="Цена покупателя" value={formatByn(deal.priceByn)} />
-                  <KV label="Форма оплаты" value="AutoLease перечислит после акта" />
+                  <KV label="Форма оплаты" value="Авторассрочка перечислит после акта" />
                 </div>
                 <div className="mt-5 flex gap-2 sm:justify-end">
                   <Button variant="outline" className="gap-1">
@@ -149,7 +149,7 @@ export function SellerDealWorkspace({ deal }: Props) {
             {current === "msi_seller" && (
               <PanelShell icon={KeyRound} title="МСИ-верификация продавца">
                 <p className="text-sm text-muted-foreground">
-                  Подтвердите личность через МСИ, чтобы AutoLease мог перечислить вам деньги.
+                  Подтвердите личность через МСИ, чтобы Авторассрочка могла перечислить вам деньги.
                 </p>
                 <Button
                   className="mt-5 gap-2"
@@ -298,7 +298,7 @@ export function SellerDealWorkspace({ deal }: Props) {
                   <div className="flex-1">
                     <p className="text-sm font-semibold">Акт приёма-передачи</p>
                     <p className="text-xs text-muted-foreground">
-                      Стороны: продавец + покупатель + AutoLease
+                      Стороны: продавец + покупатель + Авторассрочка
                     </p>
                   </div>
                   <Button size="sm" onClick={() => openMsi("Акт приёма-передачи")}>
@@ -317,7 +317,7 @@ export function SellerDealWorkspace({ deal }: Props) {
             {current === "payout" && (
               <PanelShell icon={Wallet} title="Получение денег" tone="accent">
                 <p className="text-sm text-muted-foreground">
-                  AutoLease перечисляет {formatByn(deal.priceByn)} на ваш счёт. Обычно занимает
+                  Авторассрочка перечисляет {formatByn(deal.priceByn)} на ваш счёт. Обычно занимает
                   до 2 часов. Параллельно запускается регистрация автомобиля в ГАИ.
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">

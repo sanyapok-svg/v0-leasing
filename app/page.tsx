@@ -64,8 +64,8 @@ export default function LandingPage() {
                 Оформите лизинг <span className="text-primary">б/у автомобиля</span> полностью онлайн
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                AutoLease соединяет покупателя, продавца и государственные реестры в одной
-                сделке — от МСИ-верификации до регистрации в ГАИ. Без визита в офис.
+                Авторассрочка позволяет вам приобрести автомобиль в несколько кликов, а платить за
+                него частями. Без визита в офис финансовой компании.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="gap-2">
@@ -101,7 +101,7 @@ export default function LandingPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border bg-muted shadow-sm">
                 <Image
                   src="/hero-car.jpg"
-                  alt="Автомобиль в лизинг AutoLease"
+                  alt="Автомобиль в рассрочку Авторассрочка"
                   fill
                   priority
                   sizes="(min-width: 1024px) 600px, 100vw"
@@ -115,14 +115,14 @@ export default function LandingPage() {
                     <CheckCircle2 className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Проверка ПДН</p>
+                    <p className="text-xs text-muted-foreground">Проверка сделки</p>
                     <p className="font-semibold">78 / 100</p>
                   </div>
                 </div>
                 <div className="mt-3 h-1.5 rounded-full bg-muted">
                   <div className="h-full w-[78%] rounded-full bg-accent" />
                 </div>
-                <p className="mt-2 text-xs text-accent">Одобрено к лизингу</p>
+                <p className="mt-2 text-xs text-accent">Одобрено к финансированию</p>
               </Card>
               <Card className="absolute -right-4 top-8 max-w-[220px] p-4 shadow-lg sm:-right-8">
                 <div className="flex items-center gap-3">
@@ -143,10 +143,10 @@ export default function LandingPage() {
         <section className="border-b bg-muted/30">
           <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
             <p className="text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              Интеграции с государственными реестрами
+              Интеграции с внешними сервисами и государственными реестрами
             </p>
-            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {["МСИ", "БКИ", "ФСЗН", "Minjust", "ГАИ", "ПОД/ФТ"].map((name) => (
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              {["МСИ", "БКИ", "ФСЗН", "Minjust", "ГАИ"].map((name) => (
                 <div
                   key={name}
                   className="grid h-14 place-items-center rounded-lg border bg-background text-sm font-semibold tracking-wide text-muted-foreground"
@@ -166,7 +166,7 @@ export default function LandingPage() {
                 Процесс
               </Badge>
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                От выбора автомобиля до ключей — за 6 шагов
+                От выбора авто до получения ключей 1 день
               </h2>
               <p className="mt-3 text-pretty text-muted-foreground">
                 Каждый шаг фиксируется в реальном времени в личных кабинетах покупателя и
@@ -210,7 +210,7 @@ export default function LandingPage() {
                   icon: Wallet,
                   step: "06",
                   title: "Оплата и регистрация",
-                  body: "AutoLease переводит деньги продавцу и регистрирует авто в ГАИ на лизингодателя.",
+                  body: "Авторассрочка переводит деньги продавцу и регистрирует авто в ГАИ на лизингодателя.",
                 },
               ].map((it) => (
                 <Card key={it.step} className="p-6">
@@ -332,7 +332,7 @@ export default function LandingPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:px-6 md:flex-row">
           <Logo />
           <p className="text-xs text-muted-foreground">
-            © 2026 AutoLease. Демо-прототип. Не является публичной офертой.
+            © 2026 Авторассрочка. Демо-прототип. Не является публичной офертой.
           </p>
         </div>
       </footer>

@@ -71,7 +71,7 @@ export default function BuyerDashboard() {
               </div>
             </div>
             <p className="mt-2 text-3xl font-semibold text-accent">78</p>
-            <p className="mt-1 text-xs text-muted-foreground">Одобрено к лизингу</p>
+            <p className="mt-1 text-xs text-muted-foreground">Одобрено к финансированию</p>
           </Card>
 
           <Card className="p-5">

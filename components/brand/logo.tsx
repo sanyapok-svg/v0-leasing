@@ -16,7 +16,7 @@ export function Logo({ className, compact = false }: { className?: string; compa
       </div>
       {!compact && (
         <div className="flex flex-col leading-none">
-          <span className="text-[15px] font-semibold tracking-tight text-foreground">AutoLease</span>
+          <span className="text-[15px] font-semibold tracking-tight text-foreground">Авторассрочка</span>
           <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
             Беларусь
           </span>

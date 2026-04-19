@@ -298,7 +298,7 @@ function StagePdn({
               }
             >
               <CheckCircle2 className="h-3.5 w-3.5" />
-              {verdict === "green" && "Одобрено к лизингу"}
+              {verdict === "green" && "Одобрено к финансированию"}
               {verdict === "yellow" && "Ограниченно одобрено"}
               {verdict === "red" && "Требуется ручная проверка"}
             </span>
@@ -497,7 +497,7 @@ function StageAdvance({ onContinue, deal }: { onContinue: () => void; deal: Deal
           <p className="text-sm text-muted-foreground">Сумма к оплате</p>
           <p className="mt-1 text-5xl font-semibold">{formatByn(deal.advanceByn)}</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Реквизиты: AutoLease · BY86ALFA30122 0000 0000 0000 · АЛЬФА-БАНК
+            Реквизиты: Авторассрочка · BY86ALFA30122 0000 0000 0000 · АЛЬФА-БАНК
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button className="gap-2">

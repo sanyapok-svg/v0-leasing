@@ -1,4 +1,4 @@
-// Domain types for AutoLease.
+// Domain types for Авторассрочка.
 // NOTE: These shapes mirror a future Supabase schema (users, deals, cars, documents, stage_events)
 // so the app can be rewired from in-memory mocks to real tables with minimal changes.
 
