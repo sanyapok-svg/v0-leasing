@@ -121,5 +121,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--primary) 14%, transparent), transparent 35%),
+      radial-gradient(circle at 90% 20%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 30%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply border-border/70 bg-background/75 backdrop-blur-xl;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 }

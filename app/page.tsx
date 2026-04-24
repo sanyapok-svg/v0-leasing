@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import {
   ArrowRight,
   ShieldCheck,
@@ -17,22 +16,22 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur">
+      <header className="sticky top-0 z-40 w-full border-b bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link href="/">
             <Logo />
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
-            <a href="#how" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            <a href="#how" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
               Как это работает
             </a>
-            <a href="#cabinets" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            <a href="#cabinets" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
               Кабинеты
             </a>
-            <a href="#security" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            <a href="#security" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
               Безопасность
             </a>
-            <a href="#faq" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            <a href="#faq" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
               FAQ
             </a>
           </nav>
@@ -52,7 +51,10 @@ export default function LandingPage() {
         <section className="relative overflow-hidden border-b">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
             <div>
-              <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <p className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                Автосделка в один день
+              </p>
+              <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 Купить авто с оплатой частями
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -60,18 +62,18 @@ export default function LandingPage() {
                 него частями. Без визита в офис финансовой компании.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="gap-2">
+                <Button asChild size="lg" className="group gap-2 rounded-xl">
                   <Link href="/login">
                     Начать сделку
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="rounded-xl">
                   <a href="#how">Как это работает</a>
                 </Button>
               </div>
 
-              <dl className="mt-10 grid grid-cols-3 gap-6 border-t pt-8">
+              <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-border/70 pt-8">
                 <div>
                   <dt className="text-xs uppercase tracking-wider text-muted-foreground">Сделок</dt>
                   <dd className="mt-1 text-2xl font-semibold text-foreground">12 480+</dd>
@@ -90,40 +92,37 @@ export default function LandingPage() {
             </div>
 
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border bg-muted shadow-sm">
-                <Image
-                  src="/hero-car.jpg"
-                  alt="Автомобиль в рассрочку Авторассрочка"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 600px, 100vw"
-                  className="object-cover"
+              <div className="glass-card hover-lift overflow-hidden rounded-2xl border shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=1600&q=80"
+                  alt="Автомобиль Audi"
+                  className="h-[430px] w-full object-cover"
                 />
               </div>
               {/* Floating status card */}
-              <Card className="absolute -left-4 bottom-8 max-w-[240px] p-4 shadow-lg sm:-left-8">
+              <Card className="glass-card absolute left-3 bottom-4 max-w-[180px] p-3 shadow-md sm:left-4 sm:bottom-5">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-accent/15 text-accent">
-                    <CheckCircle2 className="h-5 w-5" />
+                  <div className="grid h-8 w-8 place-items-center rounded-full bg-accent/15 text-accent">
+                    <CheckCircle2 className="h-4 w-4 animate-pulse" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Проверка сделки</p>
-                    <p className="font-semibold">78 / 100</p>
+                    <p className="text-sm font-semibold">78 / 100</p>
                   </div>
                 </div>
-                <div className="mt-3 h-1.5 rounded-full bg-muted">
+                <div className="mt-2 h-1.5 rounded-full bg-muted">
                   <div className="h-full w-[78%] rounded-full bg-accent" />
                 </div>
-                <p className="mt-2 text-xs text-accent">Одобрено к финансированию</p>
+                <p className="mt-2 text-[11px] text-accent">Одобрено к финансированию</p>
               </Card>
-              <Card className="absolute -right-4 top-8 max-w-[220px] p-4 shadow-lg sm:-right-8">
+              <Card className="glass-card absolute right-3 top-4 max-w-[165px] p-3 shadow-md sm:right-4 sm:top-5">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary">
-                    <Smartphone className="h-5 w-5" />
+                  <div className="grid h-8 w-8 place-items-center rounded-full bg-primary/10 text-primary">
+                    <Smartphone className="h-4 w-4 transition-transform duration-300 hover:rotate-6" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">МСИ</p>
-                    <p className="text-sm font-semibold">Подпись получена</p>
+                    <p className="text-xs font-semibold">Подпись получена</p>
                   </div>
                 </div>
               </Card>
@@ -197,9 +196,9 @@ export default function LandingPage() {
                   ],
                 },
               ].map((c) => (
-                <Card key={c.role} className="flex flex-col p-6">
+                <Card key={c.role} className="group glass-card hover-lift flex flex-col rounded-2xl p-6">
                   <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary text-primary-foreground">
-                    <c.icon className="h-5 w-5" />
+                    <c.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <h3 className="mt-4 text-xl font-semibold">Кабинет — {c.role}</h3>
                   <ul className="mt-4 space-y-2 text-sm">
@@ -210,10 +209,10 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button asChild variant="outline" className="mt-6 w-full">
-                    <Link href={c.href} className="gap-1">
+                  <Button asChild variant="outline" className="mt-6 w-full rounded-xl">
+                    <Link href={c.href} className="group gap-1">
                       Открыть демо
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </Button>
                 </Card>

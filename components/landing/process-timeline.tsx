@@ -46,8 +46,8 @@ export function ProcessTimeline() {
       </div>
 
       {/* Desktop: вертикальная ось по центру, покупатель слева, продавец справа */}
-      <div className="mx-auto hidden max-w-2xl sm:block">
-        <div className="mb-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+      <div className="mx-auto hidden max-w-3xl sm:block">
+        <div className="mb-6 grid grid-cols-[1fr_auto_1fr] items-center gap-8 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           <p className="text-right">Покупатель</p>
           <span aria-hidden />
           <p>Продавец</p>
@@ -63,8 +63,8 @@ export function ProcessTimeline() {
             {STEPS.map((step, i) => {
               const isBuyer = step.role === "buyer"
               return (
-                <li key={i} className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-1">
-                  <div className="min-h-[3rem] px-2 text-right text-pretty text-sm leading-snug text-foreground">
+                <li key={i} className="grid grid-cols-[1fr_auto_1fr] items-center gap-8 py-1">
+                  <div className="min-h-[3rem] px-6 text-right text-pretty text-sm leading-snug text-foreground">
                     {isBuyer ? step.text : <span className="text-muted-foreground/40">—</span>}
                   </div>
 
@@ -75,7 +75,7 @@ export function ProcessTimeline() {
                     />
                   </div>
 
-                  <div className="min-h-[3rem] px-2 text-pretty text-sm leading-snug text-foreground">
+                  <div className="min-h-[3rem] px-6 text-pretty text-sm leading-snug text-foreground">
                     {!isBuyer ? step.text : <span className="text-muted-foreground/40">—</span>}
                   </div>
                 </li>
