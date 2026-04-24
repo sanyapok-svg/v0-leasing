@@ -124,10 +124,10 @@ export function SellerDealWorkspace({ deal }: Props) {
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_340px]">
           <div className="space-y-5">
             {current === "incoming" && (
-              <PanelShell icon={Hourglass} title="Входящий запрос на продажу">
+              <PanelShell icon={Hourglass} title="Запрос от платформы">
                 <p className="text-sm text-muted-foreground">
-                  Покупатель {deal.buyer.name} хочет купить ваш автомобиль в лизинг. Проверьте
-                  условия — затем подтвердите или отклоните.
+                  Покупатель {deal.buyer.name} оформляет авто в лизинг. Платформа уточнит детали по авто
+                  и сделке — проверьте условия и примите решение.
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   <KV label="Цена покупателя" value={formatByn(deal.priceByn)} />
@@ -147,9 +147,9 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "msi_seller" && (
-              <PanelShell icon={KeyRound} title="МСИ-верификация продавца">
+              <PanelShell icon={KeyRound} title="МСИ продавца">
                 <p className="text-sm text-muted-foreground">
-                  Подтвердите личность через МСИ, чтобы Авторассрочка могла перечислить вам деньги.
+                  Идентификация через МСИ — нужна для выплаты и подписания документов.
                 </p>
                 <Button
                   className="mt-5 gap-2"
@@ -161,9 +161,9 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "seller_checks" && (
-              <PanelShell icon={ShieldCheck} title="Проверки продавца" tone="accent">
+              <PanelShell icon={ShieldCheck} title="Проверки" tone="accent">
                 <p className="text-sm text-muted-foreground">
-                  Автоматическая проверка по реестрам Legat, Minjust, ГАИ и ПОД/ФТ.
+                  Автоматические проверки по реестрам перед подтверждением сделки.
                 </p>
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                   {[
@@ -204,9 +204,9 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "confirm_terms" && (
-              <PanelShell icon={UploadCloud} title="Подтверждение условий и фото">
+              <PanelShell icon={UploadCloud} title="Подтверждение и данные">
                 <p className="text-sm text-muted-foreground">
-                  Подтвердите цену и загрузите фотографии автомобиля (до 10 шт.) и сканы документов.
+                  Подтвердите сделку и передайте запрошенные данные по авто (фото, документы).
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-3">
                   <KV label="Цена" value={formatByn(deal.priceByn)} />
@@ -230,9 +230,9 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "sign_dkp" && (
-              <PanelShell icon={FileSignature} title="Подписание ДКП">
+              <PanelShell icon={FileSignature} title="ДКП">
                 <p className="text-sm text-muted-foreground">
-                  Договор купли-продажи сформирован. Подпишите его через МСИ.
+                  После аванса покупателя готов договор купли-продажи (ДКП) — подпишите через МСИ.
                 </p>
                 <div className="mt-4 flex items-center gap-3 rounded-lg border bg-muted/40 p-4">
                   <FileSignature className="h-5 w-5 text-primary" />
@@ -254,10 +254,10 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "qr_inspection" && (
-              <PanelShell icon={QrCode} title="QR-код для осмотра" tone="accent">
+              <PanelShell icon={QrCode} title="QR для покупателя" tone="accent">
                 <p className="text-sm text-muted-foreground">
-                  Покажите покупателю этот QR-код при встрече. После сканирования событие
-                  зафиксируется в сделке.
+                  На встрече откройте QR в приложении платформы — покупатель отсканирует и подтвердит
+                  получение авто.
                 </p>
                 <div className="mt-5 flex flex-col items-center rounded-xl border bg-background p-6">
                   <div className="grid h-56 w-56 place-items-center rounded-lg border-2 border-foreground/10 bg-white">
@@ -278,9 +278,9 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "inspection_done" && (
-              <PanelShell icon={CheckCircle2} title="Осмотр подтверждён" tone="accent">
+              <PanelShell icon={CheckCircle2} title="Осмотр" tone="accent">
                 <p className="text-sm text-muted-foreground">
-                  Покупатель отсканировал QR-код и подтвердил осмотр. Переходите к подписанию акта.
+                  Покупатель отсканировал QR. Далее — акт приёма-передачи к ДКП.
                 </p>
                 <div className="mt-4 flex justify-end">
                   <Button onClick={goNext} className="gap-1">
@@ -292,13 +292,13 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "sign_act" && (
-              <PanelShell icon={FileSignature} title="Подписание акта приёма-передачи">
+              <PanelShell icon={FileSignature} title="Акт к ДКП">
                 <div className="flex items-center gap-3 rounded-lg border bg-muted/40 p-4">
                   <FileSignature className="h-5 w-5 text-primary" />
                   <div className="flex-1">
-                    <p className="text-sm font-semibold">Акт приёма-передачи</p>
+                    <p className="text-sm font-semibold">Акт приёма-передачи к ДКП</p>
                     <p className="text-xs text-muted-foreground">
-                      Стороны: продавец + покупатель + Авторассрочка
+                      Подпишите — покупатель получит уведомление и сможет забрать ключи
                     </p>
                   </div>
                   <Button size="sm" onClick={() => openMsi("Акт приёма-передачи")}>
@@ -315,10 +315,10 @@ export function SellerDealWorkspace({ deal }: Props) {
             )}
 
             {current === "payout" && (
-              <PanelShell icon={Wallet} title="Получение денег" tone="accent">
+              <PanelShell icon={Wallet} title="Выплата за авто" tone="accent">
                 <p className="text-sm text-muted-foreground">
-                  Авторассрочка перечисляет {formatByn(deal.priceByn)} на ваш счёт. Обычно занимает
-                  до 2 часов. Параллельно запускается регистрация автомобиля в ГАИ.
+                  Перечисление {formatByn(deal.priceByn)} на ваш счёт — в течение одного банковского дня
+                  после подписания актов.
                 </p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   <KV label="К получению" value={formatByn(deal.priceByn)} accent />
@@ -340,11 +340,10 @@ export function SellerDealWorkspace({ deal }: Props) {
                     <CheckCircle2 className="h-10 w-10" />
                   </div>
                   <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight">
-                    Сделка успешно завершена
+                    Сделка закрыта
                   </h2>
                   <p className="mt-3 max-w-lg text-pretty text-muted-foreground">
-                    Деньги перечислены на ваш счёт. Автомобиль зарегистрирован в ГАИ на
-                    лизингодателя. Документы доступны в архиве.
+                    Выплата по графику банка. Документы — в архиве кабинета.
                   </p>
                   <div className="mt-8 flex flex-col gap-2 sm:flex-row">
                     <Button>Скачать документы (ZIP)</Button>

@@ -6,36 +6,36 @@ export type Role = "buyer" | "seller" | "admin"
 
 export type StageStatus = "pending" | "current" | "done" | "blocked"
 
-/** 12 stages from the buyer's perspective (mirror of Описание.docx, Часть 1 + Часть 2). */
+/** 12 этапов в кабинете покупателя (порядок совпадает с UI таймлайна). */
 export const BUYER_STAGES = [
-  { key: "application", title: "Начало сделки", short: "Заявка" },
-  { key: "msi_buyer", title: "МСИ-верификация покупателя", short: "МСИ" },
-  { key: "pdn", title: "Проверка платёжеспособности (ПДН)", short: "ПДН" },
+  { key: "application", title: "Регистрация и авто", short: "Старт" },
+  { key: "msi_buyer", title: "МСИ и согласия", short: "МСИ" },
+  { key: "pdn", title: "Расчёт и согласие", short: "Расчёт" },
   { key: "car_check", title: "Проверка автомобиля", short: "Авто" },
-  { key: "application_form", title: "Заполнение заявки", short: "Заявка" },
-  { key: "seller_response", title: "Ответ продавца", short: "Продавец" },
-  { key: "approval", title: "Решение по сделке", short: "Решение" },
-  { key: "sign_dfl", title: "Подписание ДФЛ и КАСКО", short: "ДФЛ" },
-  { key: "advance", title: "Оплата аванса", short: "Аванс" },
-  { key: "inspection", title: "Осмотр автомобиля", short: "Осмотр" },
-  { key: "sign_act", title: "Подписание акта", short: "Акт" },
-  { key: "complete", title: "Завершение сделки", short: "Готово" },
+  { key: "application_form", title: "Условия лизинга", short: "Условия" },
+  { key: "seller_response", title: "Связь с продавцом", short: "Продавец" },
+  { key: "approval", title: "ДФЛ и КАСКО", short: "Договоры" },
+  { key: "sign_dfl", title: "Подпись ДФЛ и КАСКО", short: "Подпись" },
+  { key: "advance", title: "Аванс по сделке", short: "Аванс" },
+  { key: "inspection", title: "Встреча и осмотр", short: "Осмотр" },
+  { key: "sign_act", title: "Акт к ДФЛ", short: "Акт" },
+  { key: "complete", title: "Ключи и регистрация", short: "Готово" },
 ] as const
 
 export type BuyerStageKey = (typeof BUYER_STAGES)[number]["key"]
 
-/** 10 stages from the seller's perspective. */
+/** 10 этапов в кабинете продавца. */
 export const SELLER_STAGES = [
-  { key: "incoming", title: "Входящий запрос", short: "Запрос" },
-  { key: "msi_seller", title: "МСИ-верификация продавца", short: "МСИ" },
-  { key: "seller_checks", title: "Проверки продавца", short: "Проверки" },
-  { key: "confirm_terms", title: "Подтверждение условий", short: "Условия" },
-  { key: "sign_dkp", title: "Подписание ДКП", short: "ДКП" },
-  { key: "qr_inspection", title: "QR-код для осмотра", short: "QR" },
-  { key: "inspection_done", title: "Осмотр подтверждён", short: "Осмотр" },
-  { key: "sign_act", title: "Подписание акта", short: "Акт" },
-  { key: "payout", title: "Получение денег", short: "Оплата" },
-  { key: "complete", title: "Сделка завершена", short: "Готово" },
+  { key: "incoming", title: "Запрос платформы", short: "Запрос" },
+  { key: "msi_seller", title: "МСИ продавца", short: "МСИ" },
+  { key: "seller_checks", title: "Проверки", short: "Проверки" },
+  { key: "confirm_terms", title: "Подтверждение и данные", short: "Данные" },
+  { key: "sign_dkp", title: "ДКП на авто", short: "ДКП" },
+  { key: "qr_inspection", title: "QR для покупателя", short: "QR" },
+  { key: "inspection_done", title: "Осмотр", short: "Осмотр" },
+  { key: "sign_act", title: "Акт к ДКП", short: "Акт" },
+  { key: "payout", title: "Выплата за авто", short: "Деньги" },
+  { key: "complete", title: "Сделка закрыта", short: "Готово" },
 ] as const
 
 export type SellerStageKey = (typeof SELLER_STAGES)[number]["key"]

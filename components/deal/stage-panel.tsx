@@ -109,7 +109,7 @@ export function StagePanel({ deal, currentStage, onContinue }: Props) {
 
       {currentStage === "sign_act" && (
         <StageSignAct
-          onSign={() => openMsi("Акт приёма-передачи автомобиля")}
+          onSign={() => openMsi("Акт приёма-передачи к ДФЛ")}
           onContinue={onContinue}
         />
       )}
@@ -187,8 +187,8 @@ function StageApplication({ onContinue, deal }: { onContinue: () => void; deal: 
     <StageShell
       icon={CarIcon}
       eyebrow="Этап 1"
-      title="Начало сделки"
-      description="Вы выбрали автомобиль для оформления в лизинг. Проверьте ключевые параметры — далее начнём процедуру идентификации."
+      title="Регистрация и данные по авто"
+      description="Проверьте авто и цену — далее идентификация и согласия на расчёт."
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <InfoTile label="Автомобиль" value={`${deal.car.make} ${deal.car.model}, ${deal.car.year}`} />
@@ -198,7 +198,7 @@ function StageApplication({ onContinue, deal }: { onContinue: () => void; deal: 
       </div>
       <div className="mt-6 flex justify-end">
         <Button size="lg" onClick={onContinue} className="gap-2">
-          Перейти к МСИ-верификации
+          Далее: МСИ и согласия
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
@@ -216,8 +216,8 @@ function StageMsiBuyer({ onStart, onContinue }: { onStart: () => void; onContinu
     <StageShell
       icon={KeyRound}
       eyebrow="Этап 2"
-      title="Идентификация через МСИ"
-      description="Подтвердите личность через межбанковскую систему и дайте согласия на проверки."
+      title="МСИ и согласия"
+      description="Идентификация и согласия, нужные для расчёта и проверок."
     >
       <div className="space-y-3">
         <ConsentRow
@@ -271,8 +271,8 @@ function StagePdn({
     <StageShell
       icon={Sparkles}
       eyebrow="Этап 3"
-      title="Расчёт платёжеспособности"
-      description="Автоматически получаем данные БКИ и ФСЗН, рассчитываем ПДН и сообщаем результат."
+      title="Расчёт и согласие"
+      description="Получите расчёт по лизингу. Если условия подходят — подтвердите согласие на продолжение."
       tone="accent"
     >
       <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center">
@@ -330,7 +330,7 @@ function StageCarCheck({ onStart, onContinue }: { onStart: () => void; onContinu
       icon={ScanLine}
       eyebrow="Этап 4"
       title="Проверка автомобиля"
-      description="Убеждаемся, что на автомобиле нет залогов, ограничений и подозрительной истории."
+      description="Проверяем авто по реестрам. После ответа продавца проверка дополняется его данными."
     >
       <ul className="grid gap-2.5 sm:grid-cols-2">
         {items.map((i) => (
@@ -348,7 +348,7 @@ function StageCarCheck({ onStart, onContinue }: { onStart: () => void; onContinu
           Запустить повторно
         </Button>
         <Button onClick={onContinue} className="gap-2">
-          Заполнить заявку
+          Условия лизинга
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
@@ -361,8 +361,8 @@ function StageApplicationForm({ onContinue, deal }: { onContinue: () => void; de
     <StageShell
       icon={UploadCloud}
       eyebrow="Этап 5"
-      title="Заполнение заявки"
-      description="Укажите параметры лизинга. Можно изменить аванс и срок — платёж пересчитается автоматически."
+      title="Условия лизинга"
+      description="Аванс, срок и платёж — при необходимости скорректируйте перед отправкой запроса."
     >
       <div className="grid gap-4 sm:grid-cols-3">
         <InfoTile label="Сумма лизинга" value={formatByn(deal.priceByn)} />
@@ -384,7 +384,7 @@ function StageApplicationForm({ onContinue, deal }: { onContinue: () => void; de
       </div>
       <div className="mt-6 flex justify-end">
         <Button size="lg" onClick={onContinue} className="gap-2">
-          Отправить продавцу
+          Отправить — свяжемся с продавцом
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
@@ -397,8 +397,8 @@ function StageSellerResponse({ onContinue, deal }: { onContinue: () => void; dea
     <StageShell
       icon={Hourglass}
       eyebrow="Этап 6"
-      title="Ожидаем ответа продавца"
-      description={`Заявка отправлена продавцу: ${deal.seller.name}. Среднее время ответа — 4 часа.`}
+      title="Связь с продавцом"
+      description={`Обращаемся к продавцу (${deal.seller.name}) за деталями по авто и сделке. Ждём подтверждения и данные.`}
     >
       <div className="flex items-center gap-4 rounded-lg border bg-muted/40 p-5">
         <div className="grid h-16 w-16 place-items-center rounded-full bg-primary/10">
@@ -407,7 +407,7 @@ function StageSellerResponse({ onContinue, deal }: { onContinue: () => void; dea
         <div className="flex-1">
           <p className="font-semibold">Заявка #{deal.shortId} на рассмотрении</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Продавец открыл заявку 4 минуты назад. Вы получите уведомление после ответа.
+            Уведомим, когда продавец ответит и передаст данные для проверки авто.
           </p>
         </div>
       </div>
@@ -427,8 +427,8 @@ function StageApproval({ onContinue, deal }: { onContinue: () => void; deal: Dea
     <StageShell
       icon={CheckCircle2}
       eyebrow="Этап 7"
-      title="Заявка подтверждена!"
-      description="Продавец согласился с условиями сделки. Готовим договор финансового лизинга."
+      title="ДФЛ и КАСКО"
+      description="Продавец подтвердил сделку, авто проверен. Формируем договор лизинга (ДФЛ) и КАСКО."
       tone="accent"
     >
       <div className="grid gap-4 sm:grid-cols-3">
@@ -438,7 +438,7 @@ function StageApproval({ onContinue, deal }: { onContinue: () => void; deal: Dea
       </div>
       <div className="mt-6 flex justify-end">
         <Button size="lg" onClick={onContinue} className="gap-2">
-          Подписать ДФЛ и КАСКО
+          К подписанию ДФЛ и КАСКО
           <FileSignature className="h-4 w-4" />
         </Button>
       </div>
@@ -459,8 +459,8 @@ function StageSignDfl({
     <StageShell
       icon={FileSignature}
       eyebrow="Этап 8"
-      title="Подписание ДФЛ и КАСКО"
-      description="Два документа подписываются последовательно через МСИ. Это займёт меньше минуты."
+      title="Подпись ДФЛ и КАСКО"
+      description="Подпишите ДФЛ и полис КАСКО через МСИ."
     >
       <div className="grid gap-3 sm:grid-cols-2">
         <DocumentSignRow
@@ -476,7 +476,7 @@ function StageSignDfl({
       </div>
       <div className="mt-6 flex justify-end">
         <Button onClick={onContinue} className="gap-2">
-          Перейти к оплате аванса
+          Аванс по сделке
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
@@ -489,8 +489,8 @@ function StageAdvance({ onContinue, deal }: { onContinue: () => void; deal: Deal
     <StageShell
       icon={Wallet}
       eyebrow="Этап 9"
-      title="Оплата аванса"
-      description="Оплатите аванс любым удобным способом. Платёж зачислится мгновенно."
+      title="Аванс"
+      description="После оплаты аванса сформируем ДКП для продавца. Дальше — согласование встречи и осмотра."
     >
       <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-center">
         <div>
@@ -527,17 +527,17 @@ function StageInspection({ onContinue }: { onContinue: () => void }) {
     <StageShell
       icon={ScanLine}
       eyebrow="Этап 10"
-      title="Осмотр автомобиля"
-      description="Встретьтесь с продавцом и отсканируйте QR-код на экране его приложения — событие зафиксируется в сделке."
+      title="Встреча и осмотр"
+      description="После подписания ДКП продавцом договоритесь о встрече. Осмотрите авто; затем попросите открыть QR в приложении платформы."
     >
       <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
         <div>
           <ol className="space-y-3 text-sm">
             {[
-              "Договоритесь с продавцом о месте встречи",
-              "Проверьте состояние авто, VIN и пробег",
-              "Попросите продавца открыть QR-код в его кабинете",
-              "Отсканируйте QR камерой — подтвердите осмотр",
+              "Согласуйте время и место встречи",
+              "Проверьте авто, VIN и пробег",
+              "Продавец открывает QR в приложении — вы сканируете своим",
+              "Подтверждаете готовность получить авто — формируется акт к ДФЛ",
             ].map((s, i) => (
               <li key={i} className="flex gap-3">
                 <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
@@ -573,17 +573,17 @@ function StageSignAct({ onSign, onContinue }: { onSign: () => void; onContinue: 
     <StageShell
       icon={Handshake}
       eyebrow="Этап 11"
-      title="Подписание акта приёма-передачи"
-      description="Финальный документ между вами и продавцом. После подписания деньги уходят продавцу автоматически."
+      title="Акт к ДФЛ"
+      description="Подпишите акт приёма-передачи к ДФЛ. Для продавца параллельно оформляется акт к ДКП — дождитесь уведомления о его подписи, затем можно забирать ключи."
     >
       <DocumentSignRow
         title="Акт приёма-передачи автомобиля"
-        subtitle="Акт-24019 · 2 страницы · стороны: покупатель + продавец"
+        subtitle="Акт к ДФЛ · 2 стр."
         onSign={onSign}
       />
       <div className="mt-6 flex justify-end">
         <Button onClick={onContinue} className="gap-2">
-          Завершить сделку
+          Переход к ключам и регистрации
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
@@ -602,14 +602,18 @@ function StageComplete({ deal }: { deal: Deal }) {
           {deal.shortId}
         </Badge>
         <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-          Сделка оформлена!
+          Ключи у вас
         </h2>
         <p className="mt-3 max-w-xl text-pretty text-muted-foreground">
-          Автомобиль {deal.car.make} {deal.car.model} оформлен в финансовый лизинг. Деньги
-          перечислены продавцу, регистрация в ГАИ запущена автоматически.
+          {deal.car.make} {deal.car.model} — сделка закрыта. Продавец получит оплату в течение одного
+          банковского дня. После постановки авто на учёт в ГАИ загрузите в сервис копию техпаспорта.
         </p>
 
         <div className="mt-8 grid w-full max-w-md gap-3">
+          <Button size="lg" variant="outline" className="gap-2">
+            <UploadCloud className="h-4 w-4" />
+            Загрузить копию техпаспорта
+          </Button>
           <Button size="lg" className="gap-2">
             <FileSignature className="h-4 w-4" />
             Скачать пакет документов (ZIP)

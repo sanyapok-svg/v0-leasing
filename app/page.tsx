@@ -4,15 +4,12 @@ import {
   ArrowRight,
   ShieldCheck,
   Smartphone,
-  FileSignature,
-  Wallet,
-  ScanLine,
   CheckCircle2,
   Building2,
   Users,
-  LineChart,
 } from "lucide-react"
 import { Logo } from "@/components/brand/logo"
+import { ProcessTimeline } from "@/components/landing/process-timeline"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
@@ -168,63 +165,9 @@ export default function LandingPage() {
               <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 От выбора авто до получения ключей 1 день
               </h2>
-              <p className="mt-3 text-pretty text-muted-foreground">
-                Каждый шаг фиксируется в реальном времени в личных кабинетах покупателя и
-                продавца.
-              </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  icon: Smartphone,
-                  step: "01",
-                  title: "Идентификация через МСИ",
-                  body: "Покупатель и продавец подтверждают личность через межбанковскую систему идентификации.",
-                },
-                {
-                  icon: LineChart,
-                  step: "02",
-                  title: "Проверка платёжеспособности",
-                  body: "БКИ + ФСЗН рассчитывают показатель долговой нагрузки (ПДН). Ответ за 30 секунд.",
-                },
-                {
-                  icon: ShieldCheck,
-                  step: "03",
-                  title: "Проверка автомобиля",
-                  body: "Minjust, ГАИ, ПОД/ФТ — залоги, штрафы, ограничения. Автоматически.",
-                },
-                {
-                  icon: FileSignature,
-                  step: "04",
-                  title: "Подписание ДФЛ и КАСКО",
-                  body: "Договор финансового лизинга подписывается электронной подписью через МСИ.",
-                },
-                {
-                  icon: ScanLine,
-                  step: "05",
-                  title: "Осмотр по QR-коду",
-                  body: "Покупатель сканирует QR продавца при передаче автомобиля — событие фиксируется.",
-                },
-                {
-                  icon: Wallet,
-                  step: "06",
-                  title: "Оплата и регистрация",
-                  body: "Авторассрочка переводит деньги продавцу и регистрирует авто в ГАИ на лизингодателя.",
-                },
-              ].map((it) => (
-                <Card key={it.step} className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                      <it.icon className="h-5 w-5" />
-                    </div>
-                    <span className="font-mono text-sm text-muted-foreground">{it.step}</span>
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold">{it.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
-                </Card>
-              ))}
-            </div>
+            <ProcessTimeline />
           </div>
         </section>
 
@@ -247,10 +190,10 @@ export default function LandingPage() {
                   role: "Покупатель",
                   href: "/buyer",
                   bullets: [
-                    "Таймлайн из 12 этапов",
-                    "ПДН-индикатор и проверки",
-                    "Чат с продавцом",
-                    "Скачивание всех документов",
+                    "Пошаговый таймлайн сделки",
+                    "Расчёт, договоры ДФЛ и КАСКО, акты",
+                    "Осмотр по QR у продавца",
+                    "Загрузка техпаспорта после ГАИ",
                   ],
                 },
                 {
@@ -258,10 +201,10 @@ export default function LandingPage() {
                   role: "Продавец",
                   href: "/seller",
                   bullets: [
-                    "Канбан входящих запросов",
-                    "Подтверждение условий",
-                    "Генерация QR-кода осмотра",
-                    "Контроль выплаты",
+                    "Запросы и подтверждение сделки",
+                    "ДКП после аванса покупателя",
+                    "QR для встречи с покупателем",
+                    "Выплата за 1 банковский день",
                   ],
                 },
                 {
