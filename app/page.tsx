@@ -11,7 +11,6 @@ import {
 import { Logo } from "@/components/brand/logo"
 import { ProcessTimeline } from "@/components/landing/process-timeline"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 
 export default function LandingPage() {
@@ -53,12 +52,8 @@ export default function LandingPage() {
         <section className="relative overflow-hidden border-b">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
             <div>
-              <Badge variant="secondary" className="gap-1.5 rounded-full px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Финансовый лизинг · Беларусь
-              </Badge>
-              <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Оформите лизинг <span className="text-primary">б/у автомобиля</span> полностью онлайн
+              <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Купить авто с оплатой частями
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
                 Авторассрочка позволяет вам приобрести автомобиль в несколько кликов, а платить за
@@ -159,10 +154,7 @@ export default function LandingPage() {
         <section id="how" className="border-b">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
             <div className="max-w-2xl">
-              <Badge variant="secondary" className="rounded-full">
-                Процесс
-              </Badge>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 От выбора авто до получения ключей 1 день
               </h2>
             </div>
@@ -175,15 +167,12 @@ export default function LandingPage() {
         <section id="cabinets" className="border-b bg-muted/30">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
             <div className="max-w-2xl">
-              <Badge variant="secondary" className="rounded-full">
-                Роли
-              </Badge>
-              <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                Три кабинета — единый процесс сделки
+              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+                Два кабинета — единый процесс сделки
               </h2>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
               {[
                 {
                   icon: Users,
@@ -191,9 +180,9 @@ export default function LandingPage() {
                   href: "/buyer",
                   bullets: [
                     "Пошаговый таймлайн сделки",
-                    "Расчёт, договоры ДФЛ и КАСКО, акты",
-                    "Осмотр по QR у продавца",
-                    "Загрузка техпаспорта после ГАИ",
+                    "Расчёты, договоры ДФЛ и КАСКО, акты",
+                    "Осмотр авто с подтверждение сделки по QR",
+                    "Загрузка техпаспорта после регистрации в ГАИ",
                   ],
                 },
                 {
@@ -201,21 +190,10 @@ export default function LandingPage() {
                   role: "Продавец",
                   href: "/seller",
                   bullets: [
-                    "Запросы и подтверждение сделки",
-                    "ДКП после аванса покупателя",
-                    "QR для встречи с покупателем",
-                    "Выплата за 1 банковский день",
-                  ],
-                },
-                {
-                  icon: ShieldCheck,
-                  role: "Администратор",
-                  href: "/admin",
-                  bullets: [
-                    "Все сделки с фильтрами",
-                    "Ручное управление этапами",
-                    "Мониторинг проверок",
-                    "Документы и аудит",
+                    "Online-подтверждение сделки",
+                    "Online-подписание договора",
+                    "Подтверждение сделки по QR",
+                    "Получение денег за 1 банковский день",
                   ],
                 },
               ].map((c) => (
@@ -251,7 +229,7 @@ export default function LandingPage() {
               <div className="grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <h2 className="text-balance text-3xl font-semibold tracking-tight">
-                    Готовы оформить лизинг?
+                    Готовы купить авто?
                   </h2>
                   <p className="mt-3 max-w-xl text-primary-foreground/80">
                     Войдите в демо-кабинет и пройдите полный цикл сделки от покупателя и продавца.
