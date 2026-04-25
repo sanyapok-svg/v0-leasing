@@ -94,13 +94,13 @@ export default function LandingPage() {
             <div className="relative">
               <div className="glass-card hover-lift overflow-hidden rounded-2xl border shadow-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=1600&q=80"
-                  alt="Автомобиль Audi"
+                  src="/hero-title-bmw.png"
+                  alt="Автомобиль BMW"
                   className="h-[430px] w-full object-cover"
                 />
               </div>
               {/* Floating status card */}
-              <Card className="glass-card absolute left-3 bottom-4 max-w-[180px] p-3 shadow-md sm:left-4 sm:bottom-5">
+              <Card className="glass-card absolute left-3 top-3 max-w-[180px] p-3 shadow-md sm:left-4 sm:top-4">
                 <div className="flex items-center gap-3">
                   <div className="grid h-8 w-8 place-items-center rounded-full bg-accent/15 text-accent">
                     <CheckCircle2 className="h-4 w-4 animate-pulse" />
