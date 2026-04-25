@@ -32,7 +32,7 @@ export default function LandingPage() {
               Безопасность
             </a>
             <a href="#faq" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              FAQ
+              Частые вопросы
             </a>
           </nav>
           <div className="flex items-center gap-2">
