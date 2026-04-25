@@ -80,7 +80,7 @@ export function StagePanel({ deal, currentStage, onContinue }: Props) {
         <StageCarCheck
           onStart={() =>
             openVerify("Проверка автомобиля", [
-              { source: "minjust", label: "Minjust — реестр залогов" },
+              { source: "minjust", label: "Minjust.gov.by — реестр залогов" },
               { source: "pdd", label: "ГАИ — ограничения и ПДД" },
               { source: "pod_ft", label: "ПОД/ФТ — чистота сделки" },
             ])
@@ -320,7 +320,7 @@ function StagePdn({
 
 function StageCarCheck({ onStart, onContinue }: { onStart: () => void; onContinue: () => void }) {
   const items = [
-    { label: "Minjust — залоги и ограничения", ok: true },
+    { label: "Minjust.gov.by — залоги и ограничения", ok: true },
     { label: "ГАИ — штрафы и регистрация", ok: true },
     { label: "ПОД/ФТ — чистота происхождения", ok: true },
     { label: "VIN — история владельцев", ok: true },

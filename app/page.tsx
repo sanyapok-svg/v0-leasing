@@ -40,7 +40,7 @@ export default function LandingPage() {
               <Link href="/login">Войти</Link>
             </Button>
             <Button asChild size="sm">
-              <Link href="/login">Начать сделку</Link>
+              <Link href="/login">Регистрация</Link>
             </Button>
           </div>
         </div>
@@ -58,13 +58,13 @@ export default function LandingPage() {
                 Купить авто с оплатой частями
               </h1>
               <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                Авторассрочка позволяет вам приобрести автомобиль в несколько кликов, а платить за
-                него частями. Без визита в офис финансовой компании.
+                Авторассрочка позволяет вам приобрести автомобиль в несколько кликов Online, а платить
+                за него частями. Без визита в офис финансовой компании
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="group gap-2 rounded-xl">
                   <Link href="/login">
-                    Начать сделку
+                    Регистрация
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -137,7 +137,7 @@ export default function LandingPage() {
               Интеграции с внешними сервисами и государственными реестрами
             </p>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-              {["МСИ", "БКИ", "ФСЗН", "Minjust", "ГАИ"].map((name) => (
+              {["МСИ", "БКИ", "ФСЗН", "Minjust.gov.by", "ГАИ"].map((name) => (
                 <div
                   key={name}
                   className="grid h-14 place-items-center rounded-lg border bg-background text-sm font-semibold tracking-wide text-muted-foreground"

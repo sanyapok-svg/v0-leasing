@@ -168,7 +168,7 @@ export function SellerDealWorkspace({ deal }: Props) {
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                   {[
                     "Legat — право собственности",
-                    "Minjust — отсутствие залогов",
+                    "Minjust.gov.by — отсутствие залогов",
                     "ГАИ — ограничения и штрафы",
                     "ПОД/ФТ — отсутствие санкций",
                   ].map((x) => (
@@ -187,7 +187,7 @@ export function SellerDealWorkspace({ deal }: Props) {
                     onClick={() =>
                       openVerify([
                         { source: "legat", label: "Legat — собственность" },
-                        { source: "minjust", label: "Minjust — залоги" },
+                        { source: "minjust", label: "Minjust.gov.by — залоги" },
                         { source: "pdd", label: "ГАИ — ПДД" },
                         { source: "pod_ft", label: "ПОД/ФТ — скрининг" },
                       ])
